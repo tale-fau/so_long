@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:44:37 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/07/27 23:43:33 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/08 18:18:55 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ int	ft_check_compo(char c, t_data *data)
 		if (c == 'C')
 			data->sym_c++;
 		if (c == 'P')
+		{
 			data->sym_p++;
+			data->player_pos[0] = data->ligne;
+			data->player_pos[1] = data->colonne;
+		}
 		return (0);
 	}
 	else
@@ -94,10 +98,7 @@ int	ft_map_validity(char *path, t_data *data)
 	ret_verif = ft_verif(data);
 	if (ret_verif != 0)
 		return (handle_errors(404));
-	if (data->sym_c < 1 || data->sym_e < 1 || data->sym_p < 1)
+	if (data->sym_c < 1 || data->sym_e < 1 || data->sym_p != 1)
 		return (handle_errors(19));
-/* 	while (data->ligne-- > -1)
-		free(data->map[data->ligne]);
-	free(data->map); */                  //Probleme : premiere uti erronee c ok
-	return (0);                           // puis si je refais une bonne : erreur de free 
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 16:26:48 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/07/27 23:39:24 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/08 18:18:58 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int	new_window(t_data *data)
 {
-	data->window_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "New Window");
+	if (data->colonne <= 100 || data->ligne <= 70)
+		data->window_ptr = mlx_new_window(data->mlx_ptr,
+				data->colonne * 10, data->ligne * 10, "So Long");
+	else
+		data->window_ptr = mlx_new_window(data->mlx_ptr,
+				data->colonne, data->ligne, "So Long");
 	if (data ->window_ptr == NULL)
 		return (1);
 	return (0);
@@ -22,7 +27,12 @@ int	new_window(t_data *data)
 
 int	new_image(t_data *data)
 {
-	data->img_ptr = mlx_new_image(data->mlx_ptr, 1000, 1000);
+	if (data->colonne <= 100 || data->ligne <= 70)
+		data->img_ptr = mlx_new_image(data->mlx_ptr,
+				data->colonne * 10, data->ligne * 10);
+	else
+		data->img_ptr = mlx_new_image(data->mlx_ptr,
+				data->colonne, data->ligne);
 	if (data->img_ptr == NULL)
 		return (1);
 	data->img_addr = mlx_get_data_addr(data->img_ptr, &data->bits_per_pixel,
@@ -48,6 +58,7 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
+	data.key_count = 0;
 	if (ac != 2)
 		return (handle_errors(2));
 	if (check_extension(av[1]) != 0)
@@ -66,6 +77,9 @@ int	main(int ac, char **av)
 		return (handle_errors(6));
 	color_image(&data);
 	mlx_put_image_to_window(data.mlx_ptr, data.window_ptr, data.img_ptr, 0, 0);
+	//mlx_key_hook(data.window_ptr, key_hook, &data);
+	mlx_hook(data.window_ptr, 2, 1L << 0, key_manager, &data);
+	//mlx_loop_hook(data.mlx_ptr, , &data);
 	mlx_loop(data.mlx_ptr);
 	return (0);
 }

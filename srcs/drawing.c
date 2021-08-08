@@ -6,85 +6,116 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:38:24 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/07/25 18:21:50 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/08 18:18:54 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_pixel_put(t_data *data, int x, int y, int color)
+int	draw_player(int y, int x, t_data *data)
 {
-	char	*dst;
+	int	a;
+	int	b;
 
-	dst = data->img_addr + (y * data->line_length + x
-			* (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
-
-int	draw_walls(t_data *data)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	while (y < 1000)
+	b = 0;
+	while (y + b <= y + 10)
 	{
-		while (x < 1000)
+		a = 0;
+		while (x + a <= x + 10)
 		{
-			ft_pixel_put(data, x, y, 0xff0000);
-			x++;
+			ft_pixel_put(data, x + a, y + b, 0x21ff00);
+			a++;
 		}
-		x = 0;
-		y++;
+		b++;
 	}
 	return (0);
 }
 
-int	draw_playable_zone(t_data *data)
+int	draw_walls(int y, int x, t_data *data)
 {
-	int	x;
-	int	y;
+	int	a;
+	int	b;
 
-	x = 200;
-	y = 200;
-	while (y < 801)
+	b = 0;
+	while (y + b <= y + 10)
 	{
-		while (x < 801)
+		a = 0;
+		while (x + a <= x + 10)
 		{
-			ft_pixel_put(data, x, y, 0x00cdff);
-			x++;
+			ft_pixel_put(data, x + a, y + b, 0xff0000);
+			a++;
 		}
-		x = 200;
-		y++;
+		b++;
 	}
 	return (0);
 }
 
-int	draw_obstacles(t_data *data)
+int	draw_playgd(int y, int x, t_data *data)
 {
-	int	x;
-	int	y;
+	int	a;
+	int	b;
 
-	x = 570;
-	y = 310;
-	while (y < 360)
+	b = 0;
+	while (y + b <= y + 10)
 	{
-		while (x < 801)
+		a = 0;
+		while (x + a <= x + 10)
 		{
-			ft_pixel_put(data, x, y, 0x00e677);
-			x++;
+			ft_pixel_put(data, x + a, y + b, 0x00ffeb);
+			a++;
 		}
-		x = 570;
-		y++;
+		b++;
+	}
+	return (0);
+}
+
+int	draw_utils(int y, int x, t_data *data, char c)
+{
+	int	a;
+	int	b;
+
+	b = 0;
+	while (y + b <= y + 10)
+	{
+		a = 0;
+		while (x + a <= x + 10)
+		{
+			if (c == 'C')
+				ft_pixel_put(data, x + a, y + b, 0xffdd00);
+			else if (c == 'E')
+				ft_pixel_put(data, x + a, y + b, 0x8900ff);
+			a++;
+		}
+		b++;
 	}
 	return (0);
 }
 
 int	color_image(t_data *data)
 {
-	draw_walls(data);
-	draw_playable_zone(data);
-	draw_obstacles(data);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == '1')
+				draw_walls(i * 10, j * 10, data);
+			else if (data->map[i][j] == '0' || data->map[i][j] == 'P')
+				draw_playgd(i * 10, j * 10, data);
+			else if (data->map[i][j] == 'C')
+				draw_utils(i * 10, j * 10, data, 'C');
+			else if (data->map[i][j] == 'E')
+				draw_utils(i * 10, j * 10, data, 'E');
+			j++;
+		}
+		i++;
+	}
+	if (data->map[data->player_pos[0]][data->player_pos[1]] == 'C')
+		data->map[data->player_pos[0]][data->player_pos[1]] = '0';
+	draw_player(data->player_pos[0] * 10, data->player_pos[1] * 10, data);
 	return (0);
 }

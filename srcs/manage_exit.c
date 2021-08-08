@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   manage_exit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 20:30:51 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/07 16:28:14 by tale-fau         ###   ########.fr       */
+/*   Created: 2021/08/08 17:52:02 by tale-fau          #+#    #+#             */
+/*   Updated: 2021/08/08 18:18:56 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_pixel_put(t_data *data, int x, int y, int color)
+int	ft_exit(t_data *data)
 {
-	char	*dst;
-
-	dst = data->img_addr + (y * data->line_length + x
-			* (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+	mlx_destroy_window(data->mlx_ptr, data->window_ptr);
+	while (data->ligne > -1)
+	{
+		free(data->map[data->ligne]);
+		data->ligne--;
+	}
+	free(data->map);
+	free(data->linear_map);
+	exit(0);
+	return (0);
 }

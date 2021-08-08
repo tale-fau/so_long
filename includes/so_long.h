@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:55:31 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/07/27 23:39:25 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/08 18:18:55 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_data
 	char	*img_addr;	//pour la mlx
 	char	*relative_path;	//pour la mlx
 	char	*linear_map;	//map en string pour envoyer vers tableau
+	int		player_pos[2]; //position du joueur
 	int		img_width;	//pour la mlx
 	int		img_height;	//pour la mlx
 	int		bits_per_pixel;	//pour la mlx
@@ -47,9 +48,10 @@ typedef struct s_data
 	int		colonne;	//colonne de la char **map
 	int		ligne;	//ligne de la char **map
 	int		sym_e;	//compteur de symboles E
-	int		sym_c;
-	int		sym_p;
-	int		nl_count;
+	int		sym_c;	//compteur de symboles C
+	int		sym_p;	//compteur de symboles P
+	int		nl_count;	//compteur utile dans GNL
+	int		key_count;	//compteur du nombre de mouvements
 }	t_data;
 
 int			render_next_frame(t_data *data);
@@ -63,5 +65,9 @@ char		*ft_strcat(char *dest, char *src);
 int			ft_check(char *str, t_data *data);
 void		ft_init(void *s, int c, size_t n);
 void		*ft_realloc(void *ptr, size_t size);
+void		ft_pixel_put(t_data *data, int x, int y, int color);
+int			key_manager(int keycode, t_data *data);
+int			new_image(t_data *data);
+int			ft_exit(t_data *data);
 
 #endif
