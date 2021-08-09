@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   manage_display.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 20:30:51 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/09 16:29:55 by tale-fau         ###   ########.fr       */
+/*   Created: 2021/08/09 16:08:13 by tale-fau          #+#    #+#             */
+/*   Updated: 2021/08/09 16:34:13 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_pixel_put(t_data *data, int x, int y, int color)
+int	display(t_data *data)
 {
-	char	*dst;
-
-	dst = data->img_addr + (y * data->line_length + x
-			* (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+		data->img_ptr, 0, 0);
+	mlx_hook(data->window_ptr, 2, 1L << 0, key_manager, &data);
+	mlx_hook(data->window_ptr, 17, 1L << 2, mouse_manager, &data);
+	mlx_loop(data->mlx_ptr);
+	return (0);
 }
-/* 
-int	data_init(t_data *data)
-{
-	data->path_player = ;
-	data->path_wall = ;
-	data->path_coin = ;
-	data->path_playgd = ;
-	data->path_exit = ;
-} */

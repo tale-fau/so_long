@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:38:24 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/08 18:18:54 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/09 16:27:26 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,9 @@ int	draw_utils(int y, int x, t_data *data, char c)
 		while (x + a <= x + 10)
 		{
 			if (c == 'C')
-				ft_pixel_put(data, x + a, y + b, 0xffdd00);
+/* 				data->text_coin = mlx_xpm_file_to_image(data->mlx_ptr,
+						data->coin_xpm, &data->img_width, &data->img_height); */
+						ft_pixel_put(data, x + a, y + b, 0xffdd00);
 			else if (c == 'E')
 				ft_pixel_put(data, x + a, y + b, 0x8900ff);
 			a++;
@@ -90,6 +92,8 @@ int	draw_utils(int y, int x, t_data *data, char c)
 	}
 	return (0);
 }
+
+//				ft_pixel_put(data, x + a, y + b, 0xffdd00);
 
 int	color_image(t_data *data)
 {

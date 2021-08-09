@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:55:31 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/08 18:18:55 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/09 16:26:56 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,22 @@ typedef struct s_data
 	void	*mlx_ptr;	//pour la mlx
 	void	*window_ptr;	//pour la mlx
 	void	*img_ptr;	//pour la mlx
+	void	*text_player;
+	void	*text_wall;
+	void	*text_coin;
+	void	*text_playgd;
+	void	*text_exit;
 	char	**map;	//map en tableau
 	char	*img_addr;	//pour la mlx
 	char	*relative_path;	//pour la mlx
 	char	*linear_map;	//map en string pour envoyer vers tableau
+	char	*path_player;
+	char	*path_wall;
+	char	*path_coin;
+	char	*path_playgd;
+	char	*path_exit;
 	int		player_pos[2]; //position du joueur
+	int		exit_pos[2];	//position exit
 	int		img_width;	//pour la mlx
 	int		img_height;	//pour la mlx
 	int		bits_per_pixel;	//pour la mlx
@@ -69,5 +80,15 @@ void		ft_pixel_put(t_data *data, int x, int y, int color);
 int			key_manager(int keycode, t_data *data);
 int			new_image(t_data *data);
 int			ft_exit(t_data *data);
+int			key_manager(int keycode, t_data *data);
+int			down_arrow(t_data *data);
+int			up_arrow(t_data *data);
+int			left_arrow(t_data *data);
+int			right_arrow(t_data *data);
+int			mouse_manager(t_data *data);
+int			exit_win(t_data *data);
+int			scan_map(t_data *data);
+int			display(t_data *data);
+int			init_data(t_data *data);
 
 #endif

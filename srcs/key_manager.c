@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   key_manager.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 20:30:51 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/09 16:29:55 by tale-fau         ###   ########.fr       */
+/*   Created: 2021/08/08 20:42:08 by tale-fau          #+#    #+#             */
+/*   Updated: 2021/08/09 15:57:08 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_pixel_put(t_data *data, int x, int y, int color)
+int	key_manager(int keycode, t_data *data)
 {
-	char	*dst;
+	int	h;
+	int	w;
 
-	dst = data->img_addr + (y * data->line_length + x
-			* (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	h = 0;
+	w = 0;
+	printf("keycode = %i\n", keycode);
+	exit_win(data);
+	if (keycode == 2)
+		right_arrow(data);
+	if (keycode == 0)
+		left_arrow(data);
+	if (keycode == 13)
+		up_arrow(data);
+	if (keycode == 1)
+		down_arrow(data);
+	if (keycode == 53)
+		ft_exit(data);
+	return (0);
 }
-/* 
-int	data_init(t_data *data)
+
+int	mouse_manager(t_data *data)
 {
-	data->path_player = ;
-	data->path_wall = ;
-	data->path_coin = ;
-	data->path_playgd = ;
-	data->path_exit = ;
-} */
+	ft_exit(data);
+	return (0);
+}
