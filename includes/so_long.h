@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:55:31 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/14 19:57:56 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/14 20:31:08 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_data
 	int		res_y;	//resolution window
 	int		res_x;
 	int		coins;	//boolean si il reste des collectibles ou non
+	int		fast;
 }	t_data;
 
 int			render_next_frame(t_data *data);
