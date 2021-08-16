@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 17:10:31 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 16:55:23 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/16 19:39:50 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+char				*ft_strjoinfree(char const *s1, char *s2, int nb);
 
 #endif
