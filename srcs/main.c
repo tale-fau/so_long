@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 13:48:03 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/14 19:56:18 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/16 16:25:00 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-	(void)data;
 	if (ac == 2)
 	{
 		check_extension(av[1]);

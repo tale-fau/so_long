@@ -6,28 +6,14 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:44:37 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/14 21:01:38 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/16 17:03:21 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int	ft_check_compo(char c, t_data *data, int ligne, int colonne)
+int	is_special(char c, t_data *data, int ligne, int colonne)
 {
-	if (ligne == 0 || (data->map[ligne] && !data->map[ligne + 1]))
-	{
-		if (c == '1')
-			return (0);
-		else
-			return (handle_errors(16));
-	}
-	if (colonne == 0 || !data->map[ligne][colonne + 1])
-	{
-		if (c == '1')
-			return (0);
-		else
-			return (handle_errors(17));
-	}
 	if (c == '0' || c == '1' || c == 'C' || c == 'E'
 		|| c == 'P' || c == '\n' || c == '\0')
 	{
@@ -47,12 +33,41 @@ int	ft_check_compo(char c, t_data *data, int ligne, int colonne)
 		return (handle_errors(19));
 }
 
+int	ft_check_compo(char c, t_data *data, int ligne, int colonne)
+{
+	if (ligne == 0 || (data->map[ligne] && !data->map[ligne + 1]))
+	{
+		if (c == '1')
+			return (0);
+		else
+			return (handle_errors(16));
+	}
+	if (colonne == 0 || !data->map[ligne][colonne + 1])
+	{
+		if (c == '1')
+			return (0);
+		else
+			return (handle_errors(17));
+	}
+	is_special(c, data, ligne, colonne);
+	return (0);
+}
+
+int	check_limits(int ligne, int colonne, t_data *data)
+{
+	if (ligne == colonne)
+		return (handle_errors(14));
+	if (ligne > INT_MAX || colonne > INT_MAX)
+		return (handle_errors(15));
+	data->max_ligne = ligne;
+	return (0);
+}
+
 int	ft_verif(t_data *data)
 {
 	int	ligne;
 	int	colonne;
 
-	data->max_colonne = (int)ft_strlen(data->map[0]);
 	ligne = 0;
 	while (data->map[ligne])
 	{
@@ -71,19 +86,22 @@ int	ft_verif(t_data *data)
 		}
 		ligne++;
 	}
-	if (ligne == colonne)
-		return (handle_errors(14));
-	if (ligne > INT_MAX || colonne > INT_MAX)
-		return (handle_errors(15));
-	data->max_ligne = ligne;
+	check_limits(ligne, colonne, data);
 	return (0);
 }
 
 int	ft_map_validity(char *path, t_data *data)
 {
 	int	ret_verif;
+	int	temp;
 
 	get_3dmap(path, data);
+	data->max_colonne = (int)ft_strlen(data->map[0]);
+	if (data->max_colonne > 68)
+		return (handle_errors(25));
+	temp = (int)ft_tablen(data->map);
+	if (temp > 70)
+		return (handle_errors(25));
 	ret_verif = ft_verif(data);
 	if (ret_verif != 0)
 		return (handle_errors(404));

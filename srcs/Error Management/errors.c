@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 18:07:48 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/14 11:56:08 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/16 16:50:09 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	suite_suite_errors(int i)
 		ft_putstr_fd("Error\nMap trop grande\n", 2);
 	else if (i == 24)
 		ft_putstr_fd("Error\nCannot load textures\n", 2);
+	else if (i == 25)
+		ft_putstr_fd("Error\nMap trop grande\n", 2);
 	return (1);
 }
 
@@ -80,5 +82,5 @@ int	handle_errors(int i)
 	else if (i == 9)
 		ft_putstr_fd("Error\nread\n", 2);
 	exit(1);
-	//return (1);
+	return (1);
 }

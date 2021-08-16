@@ -1,46 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   victory.c                                          :+:      :+:    :+:   */
+/*   ft_tablen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/13 13:59:32 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 16:25:58 by tale-fau         ###   ########.fr       */
+/*   Created: 2021/08/16 16:52:14 by tale-fau          #+#    #+#             */
+/*   Updated: 2021/08/16 17:02:36 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "libft.h"
 
-int	scan_map(t_data *data)
+size_t	ft_tablen(char **s)
 {
-	int	ligne;
-	int	colonne;
+	size_t	i;
+	int		j;
 
-	ligne = 0;
-	while (data->map[ligne])
-	{
-		colonne = 0;
-		while (data->map[ligne][colonne])
-		{
-			if (data->map[ligne][colonne] == 'C')
-				return (1);
-			colonne++;
-		}
-		ligne++;
-	}
-	return (0);
-}
-
-int	exit_win(t_data *data)
-{
-	if (scan_map(data) == 1)
+	i = 0;
+	if (s == NULL)
 		return (0);
-	else
+	while (s[i])
 	{
-		ft_putstr_fd("You Win !\n", 1);
-		ft_exit(data);
-		return (0);
+		j = 0;
+		while (s[i][j])
+			j++;
+		i++;
 	}
-	return (0);
+	return (i);
 }

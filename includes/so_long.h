@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:55:31 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/14 20:31:08 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/16 16:43:03 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,49 +27,42 @@
 # include <sys/types.h>
 # include <limits.h>
 
-# define PATH "/Users/tale-fau/github/so_long/srcs/Textures/p.xpm /Users/tale-fau/github/so_long/srcs/Textures/e.xpm /Users/tale-fau/github/so_long/srcs/Textures/c.xpm /Users/tale-fau/github/so_long/srcs/Textures/0.xpm /Users/tale-fau/github/so_long/srcs/Textures/1.xpm"
+# define PATH "../txt/p.xpm ../txt/e.xpm ../txt/c.xpm ../txt/0.xpm ../txt/1.xpm"
 
 typedef struct s_data
 {
-	void	*texts[5];	//tableau void pour stocker les textures
-	void	*mlx_ptr;	//pour la mlx
-	void	*window_ptr;	//pour la mlx
-	void	*img_ptr;	//pour la mlx
-	char	**map;	//map en tableau
-	char	*img_addr;	//pour la mlx
-	char	*relative_path;	//pour la mlx
-	char	*linear_map;	//map en string pour envoyer vers tableau
-	char	*path_player;
-	char	*path_wall;
-	char	*path_coin;
-	char	*path_playgd;
-	char	*path_exit;
+	void	*texts[5];
+	void	*mlx_ptr;
+	void	*window_ptr;
+	void	*img_ptr;
+	char	**map;
+	char	*img_addr;
+	char	*relative_path;
 	int		xwidth[5];
 	int		yheight[5];
-	int		player_pos[2]; //position du joueur
-	int		exit_pos[2];	//position exit
-	int		img_width;	//pour la mlx
-	int		img_height;	//pour la mlx
-	int		bits_per_pixel;	//pour la mlx
-	int		line_length;	//pour la mlx
-	int		endian;	//pour la mlx
-	int		size_x;	//pour la mlx
-	int		size_y;	//pour la mlx
-	int		i;	//TEST index pour la map 3d dans GNL
-	int		colonne;	//colonne de la char **map
-	int		ligne;	//ligne de la char **map
-	int		sym_e;	//compteur de symboles E
-	int		sym_c;	//compteur de symboles C
-	int		sym_p;	//compteur de symboles P
-	int		key_count;	//compteur du nombre de mouvements
+	int		player_pos[2];
+	int		exit_pos[2];
+	int		img_width;
+	int		img_height;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		size_x;
+	int		size_y;
+	int		colonne;
+	int		ligne;
+	int		sym_e;
+	int		sym_c;
+	int		sym_p;
+	int		key_count;
 	int		max_colonne;
 	int		max_ligne;
 	int		index;
 	int		ret_read;
 	int		size_game;
-	int		res_y;	//resolution window
+	int		res_y;
 	int		res_x;
-	int		coins;	//boolean si il reste des collectibles ou non
+	int		coins;
 	int		fast;
 }	t_data;
 
