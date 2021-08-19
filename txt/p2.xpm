@@ -1,24 +1,26 @@
 /* XPM */
-static char *_7cfefc8b8094ed3ff385a68fe4b20efwhE5LTurMKX3il9p[] = {
+static char *e5ff5fcd14594738bebf9efaf512845cQLlVFNuUhTHpLKaq[] = {
 /* columns rows colors chars-per-pixel */
-"16 16 2 1 ",
-"  c None",
-". c black",
+"16 16 4 1 ",
+"  c black",
+". c #C62828",
+"X c #5CC71A",
+"o c #3F51B5",
 /* pixels */
-"     .....      ",
-"    ..   ..     ",
-"    .     ..    ",
-"     .     .    ",
-"     ...  ..    ",
-"       ....     ",
-"        .       ",
-"      ......    ",
-"     .. .   ..  ",
-"    ..  .    .  ",
-"   ..   .     . ",
-"   .   ...    . ",
-"      .. ..     ",
-"     ..    .    ",
-"     .      .   ",
-"     .      ..  "
+"XXXX....XXXXXXXX",
+"XX.X. ..XXXX.XXX",
+"XX.X....XXXX.XXX",
+"XX..XXX.XXX..XXX",
+"XXXXo.....oXXXXX",
+"XXXXoo...ooXXXXX",
+"XXXXXX...XXXXXXX",
+"XXXXXX...XXXXXXX",
+"XXXXXXo.oXXXXXXX",
+"XXXXXXo.oXXXXXXX",
+"XXXXXX...XXXXXXX",
+"XXXXXXoXoXXXXXXX",
+"XXXXXooXooXXXXXX",
+"XX.XXoXXXoXX.XXX",
+"XXX..XXXXX..XXXX",
+"XXXXXXXXXXXXXXXX"
 };

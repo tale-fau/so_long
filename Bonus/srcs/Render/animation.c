@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 19:00:34 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 20:07:02 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/18 19:41:03 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,12 @@ int	anim_c(t_data *data, int i, int j)
 	return (0);
 }
 
-/* int	anim_e(t_data *data, int timer, int i, int j)
+int	anim_e(t_data *data, int i, int j)
 {
-	if (timer <= 50)
-		mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-			data->texts[4], j * 16, i * 16);
-	else if (timer > 50 || timer <= 100)
+	mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+		data->texts[4], j * 16, i * 16);
+	if (scan_map(data, 'C') == 0)
 		mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
 			data->texts[5], j * 16, i * 16);
 	return (0);
-} */
+}

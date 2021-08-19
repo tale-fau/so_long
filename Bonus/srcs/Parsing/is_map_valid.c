@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:44:37 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 17:03:21 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/19 16:30:03 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_special(char c, t_data *data, int ligne, int colonne)
 		return (0);
 	}
 	else
-		return (handle_errors(19));
+		return (handle_errors(32));
 }
 
 int	ft_check_compo(char c, t_data *data, int ligne, int colonne)
@@ -55,8 +55,6 @@ int	ft_check_compo(char c, t_data *data, int ligne, int colonne)
 
 int	check_limits(int ligne, int colonne, t_data *data)
 {
-	if (ligne == colonne)
-		return (handle_errors(14));
 	if (ligne > INT_MAX || colonne > INT_MAX)
 		return (handle_errors(15));
 	data->max_ligne = ligne;
@@ -105,7 +103,9 @@ int	ft_map_validity(char *path, t_data *data)
 	ret_verif = ft_verif(data);
 	if (ret_verif != 0)
 		return (handle_errors(404));
-	if (data->sym_c < 1 || data->sym_e < 1 || data->sym_p != 1)
+	if (data->sym_c < 1 || data->sym_e < 1 || data->sym_p < 1)
 		return (handle_errors(19));
+	if (data->sym_p > 1)
+		return (handle_errors(33));
 	return (0);
 }

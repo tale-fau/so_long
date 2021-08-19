@@ -6,15 +6,30 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 18:07:48 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 16:50:09 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/19 16:29:29 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
+int	suite_suite_suite_errors(int i)
+{
+	if (i == 30)
+		ft_putstr_fd("Error\nFichier invalide\n", 2);
+	else if (i == 31)
+		ft_putstr_fd("Error\nL'argument passe est un dossier\n", 2);
+	else if (i == 32)
+		ft_putstr_fd("Error\nSymbole invalide dans la map\n", 2);
+	else if (i == 33)
+		ft_putstr_fd("Error\nPlus d'un personnage est present sur la map\n", 2);
+	return (1);
+}
+
 int	suite_suite_errors(int i)
 {
-	if (i == 20)
+	if (i >= 30)
+		suite_suite_suite_errors(i);
+	else if (i == 20)
 		ft_putstr_fd("Error\nprobleme check read joinGNL\n", 2);
 	else if (i == 21)
 		ft_putstr_fd("Error\nProbleme malloc GNL\n", 2);
@@ -26,12 +41,20 @@ int	suite_suite_errors(int i)
 		ft_putstr_fd("Error\nCannot load textures\n", 2);
 	else if (i == 25)
 		ft_putstr_fd("Error\nMap trop grande\n", 2);
+	else if (i == 26)
+		ft_putstr_fd("Error\nTrop de mouvements\n", 2);
+	else if (i == 27)
+		ft_putstr_fd("Error\nProbleme texture enemy\n", 2);
+	else if (i == 28)
+		ft_putstr_fd("Error\nPas de place pour spawn l'ennemi.\n", 2);
+	else if (i == 29)
+		ft_putstr_fd("Error\nPas de place pour le chien :(\n", 2);
 	return (1);
 }
 
 int	suite_errors(int i)
 {
-	if (i > 20)
+	if (i >= 20)
 		suite_suite_errors(i);
 	else if (i == 10)
 		ft_putstr_fd("Error\ncompo map\n", 2);
@@ -59,7 +82,7 @@ int	suite_errors(int i)
 
 int	handle_errors(int i)
 {
-	if (i > 10)
+	if (i >= 10)
 		suite_errors(i);
 	else if (i == 404)
 		return (1);

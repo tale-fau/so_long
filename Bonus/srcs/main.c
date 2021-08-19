@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 13:48:03 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 18:35:06 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/19 15:33:18 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main(int ac, char **av)
 		ft_map_validity(av[1], &data);
 		mlx_initialize(&data);
 		load_textures(&data);
+		set_path_load_enemy(&data);
+		load_numbers(&data);
 		data.res_y = (int)(data.max_ligne * data.yheight[4]);
 		data.res_x = (int)(data.max_colonne * data.xwidth[4]);
 		data.window_ptr = mlx_new_window(data.mlx_ptr, data.res_x,

@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:55:31 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 16:43:03 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/18 18:05:47 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # include <sys/types.h>
 # include <limits.h>
 
-# define PATH "../txt/p.xpm ../txt/e.xpm ../txt/c.xpm ../txt/0.xpm ../txt/1.xpm"
+# define PATH "txt/p.xpm txt/e.xpm txt/c.xpm txt/g.xpm txt/w.xpm"
 
 typedef struct s_data
 {

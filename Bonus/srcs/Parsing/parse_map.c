@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 18:49:40 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 16:23:48 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/19 16:20:26 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,20 @@ int	get_3dmap(char *path, t_data *data)
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		return (0);
+		return (handle_errors(30));
 	ft_bzero(buff, 5000);
 	while (1)
 	{
 		ret = read(fd, buff, 5000);
-		if (ret < 0 || ret == 4999)
-		{
+		if (ret < 0)
+			return (handle_errors(31));
+		if (ret == 4999)
 			return (handle_errors(23));
-		}
 		if (ret == 0)
 			break ;
 	}
 	data->map = ft_split(buff, '\n');
+	if (data->map == NULL)
+		return (1);
 	return (0);
 }

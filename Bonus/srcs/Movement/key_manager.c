@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 20:42:08 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 16:26:08 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/19 15:15:03 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int	key_manager(int keycode, t_data *data)
 {
-	int	h;
-	int	w;
-
-	h = 0;
-	w = 0;
 	if (keycode == 2)
 		right_arrow(data);
 	if (keycode == 0)

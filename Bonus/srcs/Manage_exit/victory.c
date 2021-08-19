@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   victory.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/27 18:49:40 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/19 16:09:04 by tale-fau         ###   ########.fr       */
+/*   Created: 2021/08/13 13:59:32 by tale-fau          #+#    #+#             */
+/*   Updated: 2021/08/18 19:42:12 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int	get_3dmap(char *path, t_data *data)
+int	scan_map(t_data *data, char c)
 {
-	int		fd;
-	int		ret;
-	char	buff[5000];
+	int	ligne;
+	int	colonne;
 
-	fd = open(path, O_RDONLY);
-	if (fd < 0)
-		return (handle_errors(26));
-	ft_bzero(buff, 5000);
-	while (1)
+	ligne = 0;
+	while (data->map[ligne])
 	{
-		ret = read(fd, buff, 5000);
-		if (ret < 0)
-			return (handle_errors(27));
-		if (ret == 4999)
-			return (handle_errors(23));
-		if (ret == 0)
-			break ;
+		colonne = 0;
+		while (data->map[ligne][colonne])
+		{
+			if (data->map[ligne][colonne] == c)
+				return (1);
+			colonne++;
+		}
+		ligne++;
 	}
-	data->map = ft_split(buff, '\n');
+	return (0);
+}
+
+int	exit_win(t_data *data)
+{
+	if (scan_map(data, 'C') == 1)
+		return (0);
+	else
+	{
+		ft_putstr_fd("You Win !\n", 1);
+		ft_exit(data);
+		return (0);
+	}
 	return (0);
 }

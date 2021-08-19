@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 18:07:48 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/16 16:50:09 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/19 16:29:13 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ int	suite_suite_errors(int i)
 		ft_putstr_fd("Error\nCannot load textures\n", 2);
 	else if (i == 25)
 		ft_putstr_fd("Error\nMap trop grande\n", 2);
+	else if (i == 26)
+		ft_putstr_fd("Error\nFichier invalide\n", 2);
+	else if (i == 27)
+		ft_putstr_fd("Error\nL'argument passe est un dossier\n", 2);
+	else if (i == 28)
+		ft_putstr_fd("Error\nSymbole invalide dans la map\n", 2);
+	else if (i == 29)
+		ft_putstr_fd("Error\nPlus d'un personnage est present sur la map\n", 2);
 	return (1);
 }
 

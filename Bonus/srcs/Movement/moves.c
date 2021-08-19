@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 18:25:04 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/14 20:00:01 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/19 15:17:43 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	right_arrow(t_data *data)
 			|| data->map[data->player_pos[0]][data->player_pos[1] + 1] == 'C')
 		{
 			data->player_pos[1] += 1;
+			enemy_move(data);
 			ft_putstr_fd("Movement count : ", 1);
 			ft_putnbr_fd(++data->key_count, 1);
 			ft_putchar_fd('\n', 1);
@@ -50,6 +51,7 @@ int	left_arrow(t_data *data)
 			|| data->map[data->player_pos[0]][data->player_pos[1] - 1] == 'C')
 		{
 			data->player_pos[1] -= 1;
+			enemy_move(data);
 			ft_putstr_fd("Movement count : ", 1);
 			ft_putnbr_fd(++data->key_count, 1);
 			ft_putchar_fd('\n', 1);
@@ -73,6 +75,7 @@ int	up_arrow(t_data *data)
 			|| data->map[data->player_pos[0] - 1][data->player_pos[1]] == 'C')
 		{
 			data->player_pos[0] -= 1;
+			enemy_move(data);
 			ft_putstr_fd("Movement count : ", 1);
 			ft_putnbr_fd(++data->key_count, 1);
 			ft_putchar_fd('\n', 1);
@@ -96,6 +99,7 @@ int	down_arrow(t_data *data)
 			|| data->map[data->player_pos[0] + 1][data->player_pos[1]] == 'C')
 		{
 			data->player_pos[0] += 1;
+			enemy_move(data);
 			ft_putstr_fd("Movement count : ", 1);
 			ft_putnbr_fd(++data->key_count, 1);
 			ft_putchar_fd('\n', 1);
