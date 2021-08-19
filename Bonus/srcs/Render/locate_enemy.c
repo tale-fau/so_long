@@ -33,13 +33,13 @@ int	scan(t_data *data)
 		}
 		ligne++;
 	}
-	return (handle_errors(29));
+	return (handle_errors(28));
 }
 
 int	locate_enemy(t_data *data)
 {
 	if (scan(data) != 0)
-		return (handle_errors(28));
+		return (1);
 	data->map[data->enemy.pos[0]][data->enemy.pos[1]] = 'D';
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:44:37 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/19 16:30:03 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/19 17:36:59 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	is_special(char c, t_data *data, int ligne, int colonne)
 {
 	if (c == '0' || c == '1' || c == 'C' || c == 'E'
-		|| c == 'P' || c == '\n' || c == '\0')
+		|| c == 'P')
 	{
 		if (c == 'E')
 			data->sym_e++;
