@@ -78,9 +78,6 @@ HEAD_BONUS		=	./bonus/includes/
 
 LIBFT			=	./libft/libft.a
 
-#		Compilation Linux
-#MLX				=	./mlx_lib/libmlx_Linux.a
-
 MLX				=	./mlx_lib/libmlx.a
 
 MLX_DIR			=	./mlx_lib/
@@ -101,21 +98,7 @@ RM				=	rm -f
 
 CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=address
 
-
-
-#		Compilation Linux
-#LFLAGS			=	-lm -lX11 -lXext -lbsd
-
 LFLAGS			=	-framework OpenGL -framework AppKit
-
-#${OBJS_DIR}/%.o: *.c
-#				@mkdir -p ${OBJS_DIR}
-#				@${CC} ${CFLAGS} -I${HEAD} -c $< -o $@
-#				@echo "${GREEN}[LOADED] ${WHITE}$@"
-
-#${OBJS_DIRB}/%.o: *.c
-#				@${CC} ${CFLAGS} -I${HEAD_BONUS} -c $< -o $@
-#				@echo "${GREEN}[LOADED] ${WHITE}$@"
 
 .c.o:
 					@${CC} ${CFLAGS} -I${HEAD} -c $< -o $@
