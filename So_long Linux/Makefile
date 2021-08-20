@@ -6,7 +6,7 @@
 #    By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/18 11:35:40 by tale-fau          #+#    #+#              #
-#    Updated: 2021/08/19 15:41:17 by tale-fau         ###   ########.fr        #
+#    Updated: 2021/08/20 15:47:47 by tale-fau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,8 +99,6 @@ RM				=	rm -f
 
 CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=address
 
-
-
 #		Compilation Linux
 LFLAGS			=	-lm -lX11 -lXext -lbsd
 
@@ -109,8 +107,6 @@ LFLAGS			=	-lm -lX11 -lXext -lbsd
 					@echo "${GREEN}[LOADED] ${WHITE}$@"
 
 all:			${NAME}
-
-#					@make -C ${MLX_DIR} 2>/dev/null
 
 ${NAME}:		${OBJS}
 					@make -C ${LIB_DIR}
