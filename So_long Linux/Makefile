@@ -79,9 +79,7 @@ HEAD_BONUS		=	./bonus/includes/
 LIBFT			=	./libft/libft.a
 
 #		Compilation Linux
-#MLX				=	./mlx_lib/libmlx_Linux.a
-
-MLX				=	./mlx_lib/libmlx.a
+MLX				=	./mlx_lib/libmlx_Linux.a
 
 MLX_DIR			=	./mlx_lib/
 
@@ -104,18 +102,7 @@ CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=address
 
 
 #		Compilation Linux
-#LFLAGS			=	-lm -lX11 -lXext -lbsd
-
-LFLAGS			=	-framework OpenGL -framework AppKit
-
-#${OBJS_DIR}/%.o: *.c
-#				@mkdir -p ${OBJS_DIR}
-#				@${CC} ${CFLAGS} -I${HEAD} -c $< -o $@
-#				@echo "${GREEN}[LOADED] ${WHITE}$@"
-
-#${OBJS_DIRB}/%.o: *.c
-#				@${CC} ${CFLAGS} -I${HEAD_BONUS} -c $< -o $@
-#				@echo "${GREEN}[LOADED] ${WHITE}$@"
+LFLAGS			=	-lm -lX11 -lXext -lbsd
 
 .c.o:
 					@${CC} ${CFLAGS} -I${HEAD} -c $< -o $@
@@ -123,8 +110,9 @@ LFLAGS			=	-framework OpenGL -framework AppKit
 
 all:			${NAME}
 
+#					@make -C ${MLX_DIR} 2>/dev/null
+
 ${NAME}:		${OBJS}
-					@make -C ${MLX_DIR} 2>/dev/null
 					@make -C ${LIB_DIR}
 					@make -C ${LIB_DIR} bonus
 					@${CC} ${CFLAGS} ${LFLAGS} -I${HEAD} -o ${NAME} ${OBJS} ${LIBFT} ${MLX}
@@ -141,7 +129,6 @@ ${NAME}:		${OBJS}
 					@echo "\n 		commands : up -> W        left -> A        down -> S        right -> D      Leave -> Esc\n"
 
 bonus:			${OBJS_B}
-					@make -C ${MLX_DIR} 2>/dev/null
 					@make -C ${LIB_DIR}
 					@make -C ${LIB_DIR} bonus
 					@${CC} ${CFLAGS} ${LFLAGS} -I${HEAD_BONUS} -o ${NAME_B} ${OBJS_B} ${LIBFT} ${MLX}

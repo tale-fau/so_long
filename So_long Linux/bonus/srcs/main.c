@@ -31,7 +31,7 @@ int	main(int ac, char **av)
 				data.res_y, "So_long");
 		data.img_ptr = mlx_new_image(data.mlx_ptr, data.res_x, data.res_y);
 		mlx_hook(data.window_ptr, 2, 1L << 0, key_manager, &data);
-		mlx_hook(data.window_ptr, 17, 1L << 2, mouse_manager, &data);
+		mlx_hook(data.window_ptr, 33, 1L << 5, mouse_manager, &data);
 		mlx_loop_hook(data.mlx_ptr, color_image, &data);
 		mlx_loop(data.mlx_ptr);
 		return (0);

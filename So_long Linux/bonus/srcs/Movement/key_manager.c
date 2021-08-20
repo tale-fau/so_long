@@ -14,15 +14,15 @@
 
 int	key_manager(int keycode, t_data *data)
 {
-	if (keycode == 2)
+	if (keycode == 100)
 		right_arrow(data);
-	if (keycode == 0)
+	if (keycode == 97)
 		left_arrow(data);
-	if (keycode == 13)
+	if (keycode == 119)
 		up_arrow(data);
-	if (keycode == 1)
+	if (keycode == 115)
 		down_arrow(data);
-	if (keycode == 53)
+	if (keycode == 65307)
 		ft_exit(data);
 	return (0);
 }
