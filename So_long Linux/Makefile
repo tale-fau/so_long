@@ -97,7 +97,7 @@ OBJS_B			=	${SRCS_BONUS:.c=.o}
 
 RM				=	rm -f
 
-CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS			=	-Wall -Wextra -Werror -g
 
 #		Compilation Linux
 LFLAGS			=	-lm -lX11 -lXext -lbsd

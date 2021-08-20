@@ -19,7 +19,6 @@ int	key_manager(int keycode, t_data *data)
 
 	h = 0;
 	w = 0;
-	printf("keycode >> %i\n", keycode);
 	if (keycode == 100)
 		right_arrow(data);
 	if (keycode == 97)
