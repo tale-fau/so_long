@@ -6,7 +6,7 @@
 #    By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/18 11:35:40 by tale-fau          #+#    #+#              #
-#    Updated: 2021/08/20 15:47:47 by tale-fau         ###   ########.fr        #
+#    Updated: 2021/10/07 17:36:33 by tale-fau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -128,6 +128,7 @@ ${NAME}:		${OBJS}
 bonus:			${OBJS_B}
 					@make -C ${LIB_DIR}
 					@make -C ${LIB_DIR} bonus
+					@make -C ${MLX_DIR}
 					@${CC} ${CFLAGS} ${LFLAGS} -I${HEAD_BONUS} -o ${NAME_B} ${OBJS_B} ${LIBFT} ${MLX}
 					@echo "\n${GREEN}						    [SO_LONG BONUS LOADED 100%]"
 					@echo "${BLUE}\n[libmlx.a] has been created"
