@@ -111,6 +111,7 @@ all:			${NAME}
 ${NAME}:		${OBJS}
 					@make -C ${LIB_DIR}
 					@make -C ${LIB_DIR} bonus
+					@make -C ${MLX_DIR}
 					@${CC} ${CFLAGS} ${LFLAGS} -I${HEAD} -o ${NAME} ${OBJS} ${LIBFT} ${MLX}
 					@echo "\n${GREEN}						    [SO_LONG LOADED 100%]"
 					@sleep 1
