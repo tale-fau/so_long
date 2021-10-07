@@ -79,9 +79,9 @@ HEAD_BONUS		=	./bonus/includes/
 LIBFT			=	./libft/libft.a
 
 #		Compilation Linux
-MLX				=	./mlx_lib/libmlx_Linux.a
+MLX				=	./minilibx/libmlx_Linux.a
 
-MLX_DIR			=	./mlx_lib/
+MLX_DIR			=	./minilibx/
 
 LIB_DIR			=	./libft/
 
